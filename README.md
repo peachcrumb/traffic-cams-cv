@@ -1,42 +1,58 @@
 # traffic-cams-cv
 
-Steps for Training and Deploying an AI Model Using Cloud Compute Resources
+## Steps for Using traffic-cams-cv Files
 
-1. Choose a Cloud Compute Service
-The first step is selecting the right cloud compute service based on your project's needs. Popular options include:
-* Jetstream2: A high-performance cloud platform ideal for academic research and experimentation.
-* Google Colab: A free and accessible option for smaller-scale projects, with GPU support for deep learning tasks.
-* Koa: A service that provides cloud computing resources optimized for machine learning workloads.
-Make sure to choose one that suits your budget, scalability requirements, and specific task demands.
+1. Save repo contents to target destination
+* You will likely need cloud computing for these tasks – it is not recommended to run on your local machine or without a virtual environment.
 
-2. Set Up Your Account & Access Allocation
-Once you've selected your cloud platform, create an account and configure any necessary access allocations (such as GPU, CPU, or memory resources). Ensure that you’ve been allocated sufficient compute resources for training large models or datasets, especially if you’re working on a resource-intensive project.
+
+2. Create and activate virtual environment
+* In your command line prompt at the target location, it is recommended you run the following: 
+```
+     python3 -m venv ~/venv
+     source ~/venv/bin/activate
+     pip install ultralytics # this is for step 5, in order to run yolov11 in the script
+```
+
 
 3. Obtain Data from Relevant Sources
-Data is critical to training any AI model. Depending on your task, you may gather data from:
+Some options to collect data:
+
 * Image Scraping: Use web scraping tools or APIs to collect images from online sources.
+    * For [pySNAPSHOT_GoAkamai_ALL.py](https://github.com/peachcrumb/traffic-cams-cv/blob/main/pySNAPSHOT_GoAkamai_ALL.py), you can run it once from its location using `python3 pySNAPSHOT_GoAkamai_ALL.py` or set up an automation to scrape every x minutes:
+    * In the command lne, enter `crontab -e` and paste the following at the bottom in an uncommented line: `*/10 * * * * cd /media/volume/test_Data && /usr/bin/python3 pySNAPSHOT_GoAkamai_ALL.py >> /media/volume/test_Data/log_file.log 2>&1` 
+    * You may need to edit the path or filenames in the python script and/or crontab editor to point to where to store the images.
+
 * Roboflow: A popular platform to find and annotate datasets for tasks like object detection.
-* Alertwest.live: A site that offers specific datasets, particularly useful for real-time object detection or event tracking.
-Ensure that your data is relevant to your task (e.g., images of objects for object detection) and appropriately diverse to cover all potential scenarios your model will encounter.
-
-4. Choose or Build Your Model
-Next, decide which type of AI model fits your task. Common models include:
-* YOLO (You Only Look Once): Great for real-time object detection.
-* Detectron2: An AI research model designed for object detection, segmentation, and keypoint detection.
-Also, choose the task type for which you’ll be training the model:
-* Image Classification: Assigning a label to an image.
-* Object Detection: Detecting and localizing objects in images.
-* Segmentation: Classifying each pixel in an image, often for more detailed analysis.
-Alternatively, you can design a custom model if none of the pre-trained options meet your needs.
+    * You'll likely need to create a Roboflow account to use its features or export any public datasets. This repository assumes you will use the [y11model.py](https://github.com/peachcrumb/traffic-cams-cv/blob/main/y11model.py) script, so only data is relevant from the site, not necessarily available models.
 
 
-5. Prepare Your Data for the Model
-Data preprocessing is essential before you can train your model. Steps include:
-* Data Annotation: Labeling images with appropriate tags or bounding boxes for object detection.
-* Data Augmentation: Generating synthetic variations of your data (e.g., rotating, cropping, flipping images) to prevent overfitting and improve generalization.
-* Normalization/Resizing: Ensuring your images are the correct size and are normalized to fit the model's input requirements.
-6. Initiate the Training Phase
-With your data ready and model chosen, begin training your model. Cloud platforms like Colab or Jetstream2 offer various tools to help initiate this process. Ensure that you configure the right hyperparameters (learning rate, batch size, epochs, etc.) and monitor the training process for any issues, such as overfitting or underfitting.
+4. Prepare to train model on dataset
+Since the `y11model.py` script uses an image classification model, the data path structure should look like:  
+
+folder-name-/  
+|-- train/  
+|   |-- airplane/  
+|   |-- automobile/  
+|   |-- bird/  
+|   ...  
+|-- test/  
+|   |-- airplane/  
+|   |-- automobile/  
+|   |-- bird/  
+|   ...  
+|-- val/ (optional)  
+|   |-- airplane/  
+|   |-- automobile/  
+|   |-- bird/  
+|   ...  
+
+With the relevant images sorted into each label class.
+
+
+5. Initiate the Training Phase
+Assuming the virtual environment is activated and the `ultralytics` library was installed successfully,
+* Ensure that you configure the right hyperparameters (learning rate, batch size, epochs, etc.) in the `y11model.py` script and monitor the training process for any issues, such as overfitting or underfitting.
 
 7. Check Model Outputs
 Once training begins, frequently check your model’s outputs on validation data to assess its performance. This might include visual checks (e.g., does the model accurately detect objects or classify images?) and numerical metrics like accuracy, precision, recall, or loss.
@@ -53,4 +69,8 @@ Once your model has reached an acceptable level of accuracy and performance, it�
 * API Integration: Set up an API to allow others to interact with your model in real-time.
 * Deploy to Cloud: Deploy your model to a cloud service (e.g., AWS, Azure, or Google Cloud) for scalability and accessibility.
 Finally, test your deployed model to ensure it performs well in a production environment, making any final adjustments if necessary.
+
+## References
+
+[Ultralytics YOLO Documentation](https://docs.ultralytics.com/datasets/classify/)
 
