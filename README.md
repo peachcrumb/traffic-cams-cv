@@ -50,15 +50,19 @@ folder-name-/
 With the relevant images sorted into each label class.
 
 
-5. Initiate the Training Phase
+5. Initiate the Training Phase  
 Assuming the virtual environment is activated and the `ultralytics` library was installed successfully,
-* Ensure that you configure the right hyperparameters (learning rate, batch size, epochs, etc.) in the `y11model.py` script and monitor the training process for any issues, such as overfitting or underfitting.
+* Check the path or filenames in the `y11model.py` script to ensure the model grabs from the right dataset folder & path
+* Be sure to configure the right hyperparameters (learning rate, batch size, epochs, etc.) in the script
+* Once the above is completed, run `python3 y11model.py`
 
-7. Check Model Outputs
+
+6. Check Model Outputs
 Once training begins, frequently check your model’s outputs on validation data to assess its performance. This might include visual checks (e.g., does the model accurately detect objects or classify images?) and numerical metrics like accuracy, precision, recall, or loss.
-If the results are unsatisfactory, go back and adjust your model or data.
+If the results are unsatisfactory, go back and adjust your model or data and monitor the training process for any issues, such as overfitting or underfitting.
 
-8. Make Changes as Needed
+
+9. Make Changes as Needed
 AI model training is an iterative process. Based on the performance of your model, you may need to:
 * Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
 * Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
