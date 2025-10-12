@@ -1,5 +1,8 @@
 # traffic-cams-cv
 
+## Functionality & Purpose
+
+
 ## Steps for Using traffic-cams-cv Files
 
 1. Save repo contents to target destination
