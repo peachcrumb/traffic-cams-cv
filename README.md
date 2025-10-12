@@ -62,8 +62,8 @@ Once training begins, frequently check your model’s outputs on validation data
 If the results are unsatisfactory, go back and adjust your model or data and monitor the training process for any issues, such as overfitting or underfitting.
 
 
-9. Make Changes as Needed
-AI model training is an iterative process. Based on the performance of your model, you may need to:
+9. Make Changes as Needed  
+Based on the performance of your model, you may need to:
 * Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
 * Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
 * Use transfer learning: Fine-tune a pre-trained model with your own data to improve performance on a specific task.
