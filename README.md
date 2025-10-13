@@ -63,9 +63,9 @@ Assuming the virtual environment is activated and the `ultralytics` library was 
 6. Check Model Outputs  
 Once training begins, frequently check your model’s outputs on validation data to assess its performance. This might include visual checks (e.g., does the model accurately detect objects or classify images?) and numerical metrics like accuracy, precision, recall, or loss. If the results are unsatisfactory, go back and adjust your model or data and monitor the training process for any issues, such as overfitting or underfitting.
 * Based on the performance of your model, you may need to:
-          * Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
-          * Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
-          * Use transfer learning: Fine-tune a pre-trained model with your own data to improve performance on a specific task.
+     * Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
+     * Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
+      * Use transfer learning: Fine-tune a pre-trained model with your own data to improve performance on a specific task.
 
 
 ## References
