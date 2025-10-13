@@ -60,22 +60,13 @@ Assuming the virtual environment is activated and the `ultralytics` library was 
 * Once the above is completed, run `python3 y11model.py`
 
 
-6. Check Model Outputs
-Once training begins, frequently check your model’s outputs on validation data to assess its performance. This might include visual checks (e.g., does the model accurately detect objects or classify images?) and numerical metrics like accuracy, precision, recall, or loss.
-If the results are unsatisfactory, go back and adjust your model or data and monitor the training process for any issues, such as overfitting or underfitting.
+6. Check Model Outputs  
+Once training begins, frequently check your model’s outputs on validation data to assess its performance. This might include visual checks (e.g., does the model accurately detect objects or classify images?) and numerical metrics like accuracy, precision, recall, or loss. If the results are unsatisfactory, go back and adjust your model or data and monitor the training process for any issues, such as overfitting or underfitting.
+* Based on the performance of your model, you may need to:
+          * Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
+          * Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
+          * Use transfer learning: Fine-tune a pre-trained model with your own data to improve performance on a specific task.
 
-
-9. Make Changes as Needed  
-Based on the performance of your model, you may need to:
-* Increase the dataset size: Gather more data or use data augmentation to ensure your model can generalize well.
-* Tweak parameters: Adjust learning rates, batch sizes, or other model hyperparameters.
-* Use transfer learning: Fine-tune a pre-trained model with your own data to improve performance on a specific task.
-9. Prepare for Deployment
-Once your model has reached an acceptable level of accuracy and performance, it’s time to prepare for deployment. This may involve:
-* Model Optimization: Reduce the model's size and complexity for faster inference (e.g., using techniques like quantization or pruning).
-* API Integration: Set up an API to allow others to interact with your model in real-time.
-* Deploy to Cloud: Deploy your model to a cloud service (e.g., AWS, Azure, or Google Cloud) for scalability and accessibility.
-Finally, test your deployed model to ensure it performs well in a production environment, making any final adjustments if necessary.
 
 ## References
 
