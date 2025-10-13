@@ -2,6 +2,13 @@
 
 ## Functionality & Purpose
 
+This repository and its scripts does the following:
+* Scrape images of traffic from [GoAkamai](https://goakamai.org)
+* Train YOLOv11 image classification model on those images
+* Because importing Ultralytics libraries takes time and computing resources, cloud computing in a virtual environment is highly recommended.
+
+The purpose of the model training and evaluation is to have a working model that will be able to tell if it is dry, rainy, or flooding based on traffic camera footage. The goal is to be able to deploy the model to live road feeds. 
+
 
 ## Steps for Using traffic-cams-cv Files
 
